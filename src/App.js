@@ -2,13 +2,15 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import Navbar from "./Mycomponents/Navbar";
 import Alert from "./Mycomponents/Alert";
-// import About from "./Mycomponents/About";
 import Textform from "./Mycomponents/Textform";
-// import {
-//   BrowserRouter as Router,
-//   Routes,
-//   Route
-// } from "react-router-dom";
+import About from "./Mycomponents/About";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
+
+
 
 
 function App() {
@@ -203,39 +205,44 @@ function App() {
     }
   };
  
-  return (
-    <>
-      {/* <Router> */}
-        <Navbar
-          title="TextSwag"
-          about="About"
-          mode={mode}
-          toggleMode={toggleMode}
-          purpleMode={purpleMode}
-          greenMode={greenMode}
-          blueMode={blueMode}
-          button={button}
-          checked={isChecked}
-        />
-        <Alert mode={mode} alert={alert} />
-        <div className="container">
-          {/* <Routes>
-            <Route
-              exact path="/about"    
-              // 'exact' is used to ensure that the route matches exactly '/about' and not any sub-routes.
-              element={<About mode={mode} button={button} colors={colors} />}
-            />
-           */}
-                <Textform
-                  heading="Enter Your Text to analyze"
-                  mode={mode}
-                  button={button}
-                />
-            
-        </div>
-      {/* </Router> */}
-    </>
-  );
+ return (
+  <>
+    <Router  basename="/Text_Utils_firstreactapp">
+      <Navbar
+        title="TextSwag"
+        about="About"
+        mode={mode}
+        toggleMode={toggleMode}
+        purpleMode={purpleMode}
+        greenMode={greenMode}
+        blueMode={blueMode}
+        button={button}
+        checked={isChecked}
+      />
+      <Alert mode={mode} alert={alert} />
+
+      <div className="container">
+        <Routes>
+          <Route
+            path="/about"
+            element={<About mode={mode} colors={colors} />}
+          />
+          <Route
+            path="/"
+            element={
+              <Textform
+                heading="Enter Your Text to analyze"
+                mode={mode}
+                button={button}
+              />
+            }
+          />
+        </Routes>
+      </div>
+    </Router>
+  </>
+);
+
 }
 
 export default App;

@@ -6,7 +6,7 @@ export default function Textform(props) {
   let vowels = ["a", "e", "i", "o", "u"];
   let arr = [];
   let [count, Setcount] = useState(0);
-  // let [preview,Setpreview]= useState('Enter sometext to Preview here');
+  let [preview,Setpreview]= useState('Enter sometext to Preview here');
 
   const handleonChange = (event) => {
     setText(event.target.value);

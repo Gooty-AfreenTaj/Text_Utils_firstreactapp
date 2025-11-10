@@ -10,7 +10,7 @@ export default function Navbar(props) {
       } bg-${props.mode === "purple" ? "purple" : props.mode}`}
     >
       <div className="container-fluid d-flex gap-5">
-        <Link className="navbar-brand"to="/">
+        <Link className="navbar-brand" to="/">
           {props.title}
         </Link>
         <button
