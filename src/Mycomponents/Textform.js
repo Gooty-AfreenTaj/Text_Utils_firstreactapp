@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 export default function Textform(props) {
-  let vowels = ["a", "e", "i", "o", "u"];
+  let vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"];
   let arr = [];
   let [count, Setcount] = useState(0);
   let [preview,Setpreview]= useState('Enter sometext to Preview here');
@@ -31,16 +31,27 @@ export default function Textform(props) {
   for (const char of text) {
     arr.push(char);
   }
-  const handleVowelclick = () => {
-    for (const el of arr) {
-      vowels.forEach((element) => {
-        if (el === element) {
-          count += 1;
+  // const handleVowelclick = () => {
+  //   for (const el of arr) {
+  //     vowels.forEach((element) => {
+  //       if (el === element) {
+  //         count += 1;
+  //       }
+  //     });
+  //   }
+  //   Setcount(count);
+  // };
+  const handleVowelclick=()=>{
+    let vowelcount=0;
+    console.log(arr);
+    for(const el of arr){
+      vowels.forEach((element)=>{
+        if(el === element){
+          vowelcount +=1;
         }
-      });
-    }
-    Setcount(count);
-  };
+      })
+    }Setcount(vowelcount);
+  }
 
   return (
     <>
