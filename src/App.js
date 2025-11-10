@@ -2,13 +2,13 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import Navbar from "./Mycomponents/Navbar";
 import Alert from "./Mycomponents/Alert";
-import About from "./Mycomponents/About";
+// import About from "./Mycomponents/About";
 import Textform from "./Mycomponents/Textform";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route
-} from "react-router-dom";
+// import {
+//   BrowserRouter as Router,
+//   Routes,
+//   Route
+// } from "react-router-dom";
 
 
 function App() {
@@ -205,7 +205,7 @@ function App() {
  
   return (
     <>
-      <Router>
+      {/* <Router> */}
         <Navbar
           title="TextSwag"
           about="About"
@@ -219,25 +219,21 @@ function App() {
         />
         <Alert mode={mode} alert={alert} />
         <div className="container">
-          <Routes>
+          {/* <Routes>
             <Route
               exact path="/about"    
               // 'exact' is used to ensure that the route matches exactly '/about' and not any sub-routes.
               element={<About mode={mode} button={button} colors={colors} />}
             />
-            <Route
-              exact path="/"
-              element={
+           */}
                 <Textform
                   heading="Enter Your Text to analyze"
                   mode={mode}
                   button={button}
                 />
-              }
-            />
-          </Routes>
+            
         </div>
-      </Router>
+      {/* </Router> */}
     </>
   );
 }
