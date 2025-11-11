@@ -3,12 +3,12 @@ import React, { useState, useEffect } from "react";
 import Navbar from "./Mycomponents/Navbar";
 import Alert from "./Mycomponents/Alert";
 import Textform from "./Mycomponents/Textform";
-// import About from "./Mycomponents/About";
-// import {
-//   BrowserRouter as Router,
-//   Routes,
-//   Route,
-// } from "react-router-dom";
+import About from "./Mycomponents/About";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
 
 
 
@@ -207,7 +207,7 @@ function App() {
  
  return (
   <>
-    {/* <Router  basename="/Text_Utils_firstreactapp"> */}
+    <Router  basename="/Text_Utils_firstreactapp">
       <Navbar
         title="TextSwag"
         about="About"
@@ -222,24 +222,24 @@ function App() {
       <Alert mode={mode} alert={alert} />
 
       <div className="container">
-        {/* <Routes>
+        <Routes>
           <Route
             path="/about"
             element={<About mode={mode} colors={colors} />}
-          /> */}
-          {/* <Route
+          />
+          <Route
             path="/"
-            element={ */}
+            element={
               <Textform
                 heading="Enter Your Text to analyze"
                 mode={mode}
                 button={button}
               />
-          {/* //  }
-          // />  */}
-          {/* </Routes> */}
+            }
+          /> 
+          </Routes>
       </div>
-    {/* </Router> */}
+    </Router>
   </>
 );
 
