@@ -207,7 +207,7 @@ function App() {
  
  return (
   <>
-    <Router  basename="/Text_Utils_firstreactapp">
+    <Router >
       <Navbar
         title="TextSwag"
         about="About"
