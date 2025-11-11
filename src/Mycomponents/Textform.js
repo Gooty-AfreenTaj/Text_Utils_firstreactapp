@@ -25,22 +25,14 @@ export default function Textform(props) {
     Setcount(0);
   };
   const [text, setText] = useState("");
+  const actualText = text.replace(/\s+/g," ").trim();
 
-  const textlen = text.trim().length > 0 ? text.split(" ").length : 0;
+  const textlen = actualText.trim().length > 0 ? actualText.split(" ").length : 0;
 
   for (const char of text) {
     arr.push(char);
   }
-  // const handleVowelclick = () => {
-  //   for (const el of arr) {
-  //     vowels.forEach((element) => {
-  //       if (el === element) {
-  //         count += 1;
-  //       }
-  //     });
-  //   }
-  //   Setcount(count);
-  // };
+ 
   const handleVowelclick=()=>{
     let vowelcount=0;
     console.log(arr);
@@ -107,7 +99,11 @@ export default function Textform(props) {
         <div className="container ">
           <h3>Word Counter</h3>
           <p>
-            {textlen} words {text.length} characters
+           {/* const [text, setText] = useState("");
+
+  const textlen = text.trim().length > 0 ? text.split(" ").length : 0; */}
+
+            {textlen} words {actualText.length} characters
           </p>
         </div>
         <div className="container">
