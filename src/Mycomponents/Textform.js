@@ -1,28 +1,40 @@
 import React, { useState } from "react";
 // import Navbar from './Mycomponents/Navbar';
 import PropTypes from "prop-types";
+import { isDisabled } from "@testing-library/user-event/dist/utils";
 
 export default function Textform(props) {
   let vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"];
   let arr = [];
   let [count, Setcount] = useState(0);
   let [preview,Setpreview]= useState('Enter sometext to Preview here');
-
+  let isDisabled = false;
+  
+  
   const handleonChange = (event) => {
     setText(event.target.value);
+
   };
   const handleUpclick = () => {
     let newText = text.toUpperCase();
     setText(newText);
+     if (text.length === 0) {
+  isDisabled = true;
+  alert("Please enter some text to perform this action.");
+}
   };
   const handleLowclick = () => {
     let newText = text.toLowerCase();
     setText(newText);
+     if (text.length === 0) {
+  isDisabled = true;
+  alert("Please enter some text to perform this action.");
+}
   };
   const handleClearclick = () => {
     let text = "";
     setText(text);
-    Setcount(0);
+    Setcount(0); 
   };
   const [text, setText] = useState("");
   const actualText = text.replace(/\s+/g," ").trim();
@@ -35,7 +47,10 @@ export default function Textform(props) {
  
   const handleVowelclick=()=>{
     let vowelcount=0;
-    console.log(arr);
+    if (text.length === 0) {
+  isDisabled = true;
+  alert("Please enter some text to perform this action.");
+}
     for(const el of arr){
       vowels.forEach((element)=>{
         if(el === element){
@@ -44,6 +59,12 @@ export default function Textform(props) {
       })
     }Setcount(vowelcount);
   }
+//  let isDisabled = false;
+// if (text.length === 0) {
+//   isDisabled = true;
+//   alert("Please enter some text to perform this action.");
+// }
+
 
   return (
     <>
@@ -67,6 +88,7 @@ export default function Textform(props) {
             type="button"
             className={`btn btn-${props.button} btn-sm`}
             onClick={handleUpclick}
+            disabled={isDisabled}
           >
             Convert into UpperCase
           </button>
@@ -74,6 +96,8 @@ export default function Textform(props) {
             type="button"
             className={`btn btn-${props.button} btn-sm`}
             onClick={handleLowclick}
+            disabled={isDisabled}
+
           >
             Convert into LowerCase
           </button>
@@ -81,6 +105,8 @@ export default function Textform(props) {
             type="button"
             className={`btn btn-${props.button} btn-sm`}
             onClick={handleVowelclick}
+            disabled={isDisabled}
+
           >
             Count of the vowels
           </button>
@@ -90,6 +116,8 @@ export default function Textform(props) {
             type="button"
             className={`btn btn-${props.button} btn-sm`}
             onClick={handleClearclick}
+            disabled={isDisabled}
+
           >
             Clear
           </button>
@@ -99,10 +127,6 @@ export default function Textform(props) {
         <div className="container ">
           <h3>Word Counter</h3>
           <p>
-           {/* const [text, setText] = useState("");
-
-  const textlen = text.trim().length > 0 ? text.split(" ").length : 0; */}
-
             {textlen} words {actualText.length} characters
           </p>
         </div>
